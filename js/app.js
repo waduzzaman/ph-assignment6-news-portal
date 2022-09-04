@@ -85,7 +85,6 @@ const displayBreakingNews = news => {
 // loadBreakingNews()
 
 // Regular News
-
 const loadRegularNews = async () => {
     const url = `https://openapi.programming-hero.com/api/news/category/02`
     
@@ -137,5 +136,168 @@ const displayRegularNews = news => {
     })
 }
 
-loadRegularNews()
+// loadRegularNews()
 
+// internationalNewsContainer
+const loadInternationalNews = async () => {
+    const url = `https://openapi.programming-hero.com/api/news/category/02`
+
+    const res = await fetch(url);
+    const data = await res.json();
+    displayInternationalNews(data.data);
+
+}
+
+const displayInternationalNews = news => {
+    const internationalNewsDiv = document.getElementById('internationalNewsContainer');
+    news.forEach(category => {
+        console.log(category);
+        const newsDetailsDiv = document.createElement('div');
+        newsDetailsDiv.classList.add('col');
+        newsDetailsDiv.innerHTML = `
+        <div class="row g-1 mb-3">
+                        <div class="col-md-4">
+                            <img src="${category.thumbnail_url}..." class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="}card-title">${category.title}</h5>
+                                <p class="card-text">${category.details}</p>
+                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            <div class = "d-flex justify-content-evenly">
+                            <div class="d-flex just">
+                             <img class="rounded-circle w-25" src = "${category.author.img} 
+                             alt = "" >
+                             <div>
+                             <h6>${category.author.name}</h6>
+                            <p>${category.author.published_date}</p>
+                            </div>                            
+                            </div>
+                            <div><h6><i class="fa-regular fa-eye"></i>${category.total_view}</h6></div>                                    
+                          
+                            </div>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                      
+        `;
+        internationalNewsDiv.appendChild(newsDetailsDiv);
+
+
+    })
+}
+
+// loadInternationalNews()
+
+//Sports News Section:
+
+const loadSportsNews = async () => {
+    const url = `https://openapi.programming-hero.com/api/news/category/03`
+
+    const res = await fetch(url);
+    const data = await res.json();
+    displaySportsNews(data.data);
+
+}
+
+
+const displaySportsNews = news => {
+    const sportsNewsDiv = document.getElementById('sportsNewsContainer');
+    news.forEach(category => {
+        console.log(category);
+        const newsDetailsDiv = document.createElement('div');
+        newsDetailsDiv.classList.add('col');
+        newsDetailsDiv.innerHTML = `
+        <div class="row g-1 mb-3">
+
+                        <div class="col-md-4">
+                            <img src="${category.thumbnail_url}..." class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="}card-title">${category.title}</h5>
+                                <p class="card-text">${category.details}</p>
+                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            <div class = "d-flex justify-content-evenly">
+                            <div class="d-flex just">
+                             <img class="rounded-circle w-25" src = "${category.author.img} 
+                             alt = "" >
+                             <div>
+                             <h6>${category.author.name}</h6>
+                            <p>${category.author.published_date}</p>
+                            </div>                            
+                            </div>
+                            <div><h6><i class="fa-regular fa-eye"></i>${category.total_view}</h6></div>                                    
+                          
+                            </div>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                      
+        `;
+        sportsNewsDiv.appendChild(newsDetailsDiv);
+
+
+    })
+}
+
+// loadSportsNews()
+
+//Entertainment News Section:
+
+const loadEntertainmentNews = async () => {
+    const url = `https://openapi.programming-hero.com/api/news/category/01`
+    const res = await fetch(url);
+    const data = await res.json();
+    displayEntertainmentNews(data.data);
+
+}
+
+
+const displayEntertainmentNews = news => {
+    const entertainmentNewsDiv = document.getElementById('entertainmentNewsContainer');
+    news.forEach(category => {
+        console.log(category);
+        const newsDetailsDiv = document.createElement('div');
+        newsDetailsDiv.classList.add('col');
+        newsDetailsDiv.innerHTML = `
+        <div class="row g-1 mb-3">
+
+                        <div class="col-md-4">
+                            <img src="${category.thumbnail_url}..." class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="}card-title">${category.title}</h5>
+                                <p class="card-text">${category.details}</p>
+                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            <div class = "d-flex justify-content-evenly">
+                            <div class="d-flex just">
+                             <img class="rounded-circle w-25" src = "${category.author.img} 
+                             alt = "" >
+                             <div>
+                             <h6>${category.author.name}</h6>
+                            <p>${category.author.published_date}</p>
+                            </div>                            
+                            </div>
+                            <div><h6><i class="fa-regular fa-eye"></i>${category.total_view}</h6></div>                                    
+                          
+                            </div>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                      
+        `;
+        entertainmentNewsDiv.appendChild(newsDetailsDiv);
+
+
+    });
+}
+
+loadEntertainmentNews()
