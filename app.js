@@ -34,7 +34,7 @@ const loadBreakingOnClick = document.getElementById( 'categories' ).onclick = fu
 // Breaking News: 
 const loadBreakingNews = async () =>
 {
-    const url = `https://openapi.programming-hero.com/api/news/category/01`
+    const url = `https://openapi.programming-hero.com/api/news/category/02`
     const res = await fetch( url );
     const data = await res.json();
     displayBreakingNews( data.data );
@@ -520,7 +520,7 @@ const showSpinner = ( isLoading = false ) =>
     }
 };
 
-// loadAllNews()
+loadAllNews()
 
 
 
